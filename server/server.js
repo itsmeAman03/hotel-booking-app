@@ -14,10 +14,11 @@ app.use(cors()); // Enables cross-orgin resource sharing
 app.use(express.json());
 app.use(clerkMiddleware());
 
+//api to listen clerk webhook
+app.use('/api/clerk', (req,res) => clerkWebkooks)
+
 app.get("/", (req, res) => res.send("API WORKING FINE, GREAT!"));
 
-//api to listen clerk webhook
-app.get('/api/clerk', (req,res) => clerkWebkooks)
 
 const PORT = process.env.PORT || 3000;
 
