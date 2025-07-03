@@ -2,16 +2,15 @@ import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema(
 	{
-		_id: { type: String, required: true },
-		username: { type: String, required: true },
-		email: { type: String, required: true },
-		image: { type: String, required: true },
-		role: { type: String, enum: ["user", "hotelOwner"], default: "user" },
-		recentSearchedCities: [{ type: String, require: true }],
+		_id: { type: mongoose.Schema.Types.String, required: true },
+		username: { type: mongoose.Schema.Types.String, required: true },
+		email: { type: mongoose.Schema.Types.String, required: true },
+		image: { type: mongoose.Schema.Types.String, required: true },
+		role: { type: mongoose.Schema.Types.String, enum: ["user", "hotelOwner"], default: "user" },
+		recentSearchedCities: [{ type: mongoose.Schema.Types.String, require: true }],
 	},
 	{ timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
+export const User = mongoose.model("User", userSchema);
 
-export default User;
