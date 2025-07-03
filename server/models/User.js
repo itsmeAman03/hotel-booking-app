@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema(
 	{
+
 		_id: {
 			type: mongoose.Schema.Types.String,
 			required: true,
@@ -29,6 +30,7 @@ const userSchema = mongoose.Schema(
 				require: true,
 			},
 		],
+
 	},
 	{ timestamps: true }
 );
