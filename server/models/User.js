@@ -2,35 +2,33 @@ import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema(
 	{
-
 		_id: {
-			type: mongoose.Schema.Types.String,
+			type: String,
 			required: true,
 		},
 		username: {
-			type: mongoose.Schema.Types.String,
-			required: true
+			type: String,
+			required: true,
 		},
 		email: {
-			type: mongoose.Schema.Types.String,
+			type: String,
 			required: true,
 		},
 		image: {
-			type: mongoose.Schema.Types.String,
+			type: String,
 			required: true,
 		},
 		role: {
-			type: mongoose.Schema.Types.String,
+			type: String,
 			enum: ["user", "hotelOwner"],
 			default: "user",
 		},
 		recentSearchedCities: [
 			{
-				type: mongoose.Schema.Types.String,
+				type: String,
 				require: true,
 			},
 		],
-
 	},
 	{ timestamps: true }
 );
