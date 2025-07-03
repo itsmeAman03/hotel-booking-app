@@ -1,6 +1,5 @@
-import express from "express";
 import { User } from "../models/User.js";
-import {  Webhook } from "svix";
+import { Webhook } from "svix";
 
 const clerkWebkooks = async (req, res) => {
 	try {
@@ -29,14 +28,17 @@ const clerkWebkooks = async (req, res) => {
 		//switch case for different Events
 		switch (type) {
 			case "user.created": {
-				await User.create(userData);
+				await User.create("Created User", userData);
+				console.log(userData);
 				break;
 			}
 			case "user.updated": {
+				console.log("updated user", userData);
 				await User.findByIdAndUpdate(data.id, userData);
 				break;
 			}
 			case "user.deleted": {
+				console.log("deleted User", userData);
 				await User.findByIdAndDelete(data.id);
 				break;
 			}
